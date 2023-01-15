@@ -1,12 +1,6 @@
 <?php
     $inData = getRequestInfo();
     
-    $userId = $inData["userId"]
-    $firstName = $inData["firstName"];
-    $lastName = $inData["lastName"];
-    $phoneNumber = $inData["phoneNumber"];
-    $email = $inData["email"];
-
     $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
     if ($conn->connect_error)
     {
@@ -14,8 +8,10 @@
     }
     else
     {
-        $stmt = $conn->prepare("DELETE from Contacts where UserId=?, FirstName=?, LastName=?, PhoneNumber=?, Email=?");
-        $stmt->bind_param("sssss", $userId, $firstName, $lastName, $phoneNumber, $email);
+        // The command will look like UPDATE Contracts SET variable=? WHERE variable=?
+        // leaving this blank for now as collaboration with team needs to happen to figure out how to do this
+        $stmt = $conn->prepare("UPDATE Contacts SET");
+        $stmt->bind_param("s", $userId);
         $stmt->execute();
         $stmt->close();
         $conn->close();

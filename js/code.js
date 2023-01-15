@@ -133,7 +133,7 @@ function addContact()
 			}
 			else if (this.status == 400)
 			{
-				document.getElementById("contactAddResult").innerHTML = "Client Rrror (Bad Request)";
+				document.getElementById("contactAddResult").innerHTML = "Client Error (Bad Request)";
 			}
 			else if (this.status == 404)
 			{
@@ -157,9 +157,65 @@ function addContact()
 	
 }
 
+// This might need to change later
 function searchContact()
 {
-	let srch = document
+	let srch = document.getElementById("searchText").value;
+	document.getElementById("contactSearchResult").innerHTML = "";
+	
+	let contactList = "";
+
+	let tmp = {search:srch,userId:userId};
+	let jsonPayload = JSON.stringify( tmp );
+
+	let url = urlBase + '/SearchContacts.' + extension;
+	
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactSearchResult").innerHTML = "Contacts(s) has been retrieved";
+				let jsonObject = JSON.parse( xhr.responseText );
+				
+				for( let i=0; i<jsonObject.results.length; i++ )
+				{
+					colorList += jsonObject.results[i];
+					if( i < jsonObject.results.length - 1 )
+					{
+						contactList += "<br />\r\n";
+					}
+				}
+				
+				document.getElementsByTagName("p")[0].innerHTML = colorList;
+			}
+			else if (this.status == 400)
+			{
+				document.getElementById("contactSearchResult").innerHTML = "Client Error (Bad Request)";
+			}
+			else if (this.status == 404)
+			{
+				document.getElementById("contactSearchResult").innerHTML = "Not Found";
+			}
+			else if (this.status == 500)
+			{
+				document.getElementById("contactSearchResult").innerHTML = "Internal Server Error";
+			}
+			else if (this.status == 503)
+			{
+				document.getElementById("contactSearchResult").innerHTML = "Service Unavailable";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactSearchResult").innerHTML = err.message;
+	}
 }
 
 function doSignUp()
@@ -167,8 +223,14 @@ function doSignUp()
 
 }
 
+function deleteContact()
+{
+	
+}
+
 function toggleDarkMode()
 {
 	let element = document.body;
 	element.classList.toggle("dark-mode");
 }
+

@@ -9,5 +9,3 @@
 |Alexander Slort|Database/REST API|
 
 ***Special Thank you to Dr. Richard Lienecker for the use of his code, his support, and his entertaining lectures in the making of this project***
-
-
