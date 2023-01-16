@@ -3,7 +3,7 @@
 |Name|Role|
 |----|----|
 |John Andrews|Front-End/REST API|
-|Kenny Doa|REST API|
+|Kenny Dao|REST API|
 |Samuel Georgis|Front-End|
 |Blake Lochmandy|Team Lead|
 |Alexander Slort|Database/REST API|
