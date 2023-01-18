@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script type="text/javascript" src="js/signincode.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="css/loginSignUpStyles.css" /> 
+</head>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#" method="post">
+            <h1>Create Account</h1>
+            <input title="Please enter your first name" type="text" id="first-name" required placeholder="First name" pattern="[a-zA-Z]+"/>
+            <input title="Please enter your last name" type="text" id="last-name" required placeholder="Last name" pattern="[a-zA-Z]+"/>
+            <input title="Please enter your username" type="text" id ="username" required placeholder="Username" minlength = "7" maxlength="20"/>
+            <input title="Please enter your password" type="password" id = "password" onkeyup="checkPassword()" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$" oninvalid="showRequirements(this)" oninput="showRequirements(this)"/>
+            <input title="Please confirm your password" type="password" id ="confirm-password" onkeyup="checkPassword()" required placeholder="Confirm password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/>
+            <p class="password-status" id="password-status"></p>
+            <button id="signup-button">Sign Up</button>
+            <p id="errMessage" class="errMessage"></p>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Sign In</h1>
+            <input type="username" required placeholder="Username" minlength = "7" maxlength="20">
+            <input type="password" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$">
+            <button>Sign In</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>Please log in with your personal information</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello New User!</h1>
+                <p>Enter your information to create an account</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
