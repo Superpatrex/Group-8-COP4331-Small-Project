@@ -10,7 +10,7 @@
     {
         // The command will look like UPDATE Contracts SET variable=? WHERE variable=?
         // leaving this blank for now as collaboration with team needs to happen to figure out how to do this
-        $stmt = $conn->prepare("UPDATE Contacts SET");
+        $stmt = $conn->prepare("UPDATE contacts SET");
         $stmt->bind_param("s", $userId);
         $stmt->execute();
         $stmt->close();
