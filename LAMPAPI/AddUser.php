@@ -14,8 +14,8 @@
     }
     else
     {
-        $stmt = $conn->prepare("INSERT INTO users (UserId, FirstName, LastName, Login, Password) VALUES(?,?,?,?,?)");
-        $stmt->bind_param("sssss", $userId, $firstName, $lastName, $login, $password);
+        $stmt = $conn->prepare("INSERT INTO users (FirstName, LastName, Login, Password) VALUES(?,?,?,?)");
+        $stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
         $stmt->execute();
         $stmt->close();
         $conn->close();
