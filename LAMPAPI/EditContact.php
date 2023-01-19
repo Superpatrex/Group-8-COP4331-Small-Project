@@ -1,5 +1,11 @@
 <?php
     $inData = getRequestInfo();
+
+    $userId = $inData["userId"];
+    $firstName = $inData["firstName"];
+    $lastName = $inData["lastName"];
+    $login = $inData["login"];
+    $password = $inData["password"];
     
     $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
     if ($conn->connect_error)
@@ -10,8 +16,8 @@
     {
         // The command will look like UPDATE Contracts SET variable=? WHERE variable=?
         // leaving this blank for now as collaboration with team needs to happen to figure out how to do this
-        $stmt = $conn->prepare("UPDATE contacts SET");
-        $stmt->bind_param("s", $userId);
+        $stmt = $conn->prepare("UPDATE contacts SET FirstName=?, LastName=?, Email=?, PhoneNumber=? WHERE UserId=?");
+        $stmt->bind_param("sssss", $firstName, $lastName, $phoneNumber, $email, $userId);
         $stmt->execute();
         $stmt->close();
         $conn->close();
