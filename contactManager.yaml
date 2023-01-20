@@ -1,0 +1,215 @@
+swagger: '2.0'
+info:
+  description: This is the API documentation for the COP 4331 Contact Manager Group 8
+  version: 1.0.0
+  title: Kontaktz Manager
+  # put the contact info for your development or API team
+  contact:
+    email: andrewsjp@knights.ucf.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /Login.php:
+    post:
+      tags:
+      - Users
+      summary: Logs in to the contact application
+      operationId: dlLogin
+      description: Logs in to contact application
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: loginItem
+        description: Login
+        schema:
+          $ref: '#/definitions/Login'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  /AddUser.php:
+    post:
+      tags:
+      - Users
+      summary: Adds a user
+      operationId: addUser
+      description: Adds a user to the database
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: addUser
+        description: Color Search
+        schema:
+          $ref: '#/definitions/Login'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  /AddContact.php:
+    post:
+      tags:
+      - Contacts
+      summary: Adds a Contact to the database
+      operationId: addContact
+      description: Adds a Contact to the database
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: contactItem
+        description: Contact
+        schema:
+          $ref: '#/definitions/Contact'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+          
+  /DeleteContact.php:
+    post:
+        tags:
+        - Contacts
+        summary: Deletes a Contact
+        operationId: deleteContact
+        description: Deletes contact for the database
+        consumes:
+        - application/json
+        produces:
+        - application/json
+        parameters:
+        - in: body
+          name: searchItem
+          description: Color Search
+          schema:
+            $ref: '#/definitions/Contact'
+        responses:
+          200:
+            description: OK
+          404:
+            description: URL Not Found
+          500:
+            description: Server Error
+  /EditContact.php:
+    post:
+      tags:
+      - Contacts
+      summary: Edit contact
+      operationId: editContact
+      description: Edits a contact from the database
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: searchItem
+        description: Color Search
+        schema:
+          $ref: '#/definitions/Contact'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  /SearchContact.php:
+    post:
+      tags:
+      - Contacts
+      summary: Searches contact
+      operationId: searchColor
+      description: Searches database for specific data
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: searchItem
+        description: Color Search
+        schema:
+          $ref: '#/definitions/SearchContact'
+      responses:
+        200:
+          description: OK
+        404:
+          description: URL Not Found
+        500:
+          description: Server Error
+  
+  
+definitions:
+  Login:
+    type: object
+    required: 
+    - login
+    - password
+    properties:
+      login:
+        type: string
+        example: "fred"
+      password:
+        type: string
+        example: "secret"
+  Contact:
+    type: object
+    required: 
+    - userId
+    - firstName
+    - lastName
+    - phoneNumber
+    - email
+    properties:
+      userId:
+        type: integer
+        example: 1
+      firstName:
+        type: string
+        example: "Forrest"
+      lastName:
+        type: string
+        example: "Gump"
+      phoneNumber:
+        type: string
+        example: "123-456-7890"
+      email:
+        type: string
+        example: "myemail@gmail.com"
+  SearchContact:
+    type: object
+    required:
+    - userId
+    - search
+    properties:
+      userId:
+        type: integer
+        example: 1
+      search:
+        type: string
+        example: string
+      
+
+host: 206.189.190.78
+basePath: /LAMPAPI
+schemes:
+- http
