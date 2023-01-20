@@ -4,8 +4,8 @@
     $userId = $inData["userId"];
     $firstName = $inData["firstName"];
     $lastName = $inData["lastName"];
-    $phoneNumber = $inData["phoneNumber"];
-    $email = $inData["email"];
+    $login = $inData["login"];
+    $password = $inData["password"];
 
     $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
     if ($conn->connect_error)
@@ -14,8 +14,8 @@
     }
     else
     {
-        $stmt = $conn->prepare("DELETE FROM contacts WHERE UserId=? AND FirstName=? AND LastName=? AND PhoneNumber=? AND Email=?");
-        $stmt->bind_param("sssss", $userId, $firstName, $lastName, $phoneNumber, $email);
+        $stmt = $conn->prepare("INSERT INTO users (FirstName, LastName, Login, Password) VALUES(?,?,?,?)");
+        $stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
         $stmt->execute();
         $stmt->close();
         $conn->close();
