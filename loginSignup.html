@@ -9,19 +9,19 @@
 </head>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="#">
+        <form id = "signup">
             <h1>Create Account</h1>
-            <input type="username" required placeholder="Username" minlength = "7" maxlength="20"/>
-            <input type="password" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/>
-            <button>Sign Up</button>
+            <input type="username" required placeholder="Username" id="username" minlength = "7" maxlength="20"/>
+            <input type="password" required placeholder="Password" id="password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/>
+            <button type="submit" class="signUpButton">Sign Up</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="#">
+        <form id = "login">
             <h1>Sign In</h1>
-            <input type="username" required placeholder="Username" minlength = "7" maxlength="20">
-            <input type="password" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$">
-            <button>Sign In</button>
+            <input type="username" required placeholder="Username" id="new-username" minlength = "7" maxlength="20">
+            <input type="password" required placeholder="Password" id="new-password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$">
+            <button type="Submit" class="logInButton">Sign In</button>
         </form>
     </div>
     <div class="overlay-container">

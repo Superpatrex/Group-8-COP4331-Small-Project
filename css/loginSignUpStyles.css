@@ -20,12 +20,13 @@ body
 h1 
 {
     font-weight: bold;
-    margin: 0;
+    margin: 0 -3px;
+    font-size: 30px;
 }
 
 p
 {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
@@ -43,8 +44,8 @@ a
 button
 {
     border-radius: 20px;
-    border: 1px solid #9ccbff;
-    background-color: #9ccbff;
+    border: 1px solid #05445E;
+    background-color: #05445E;
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -53,6 +54,11 @@ button
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
+}
+
+button:hover
+{
+    background-color: #189AB4;
 }
 
 button:active
@@ -67,10 +73,15 @@ button:focus
 
 button.ghost
 {
-    background: transparent;
+    background: white;
     border-color: white;
+    color: #05445E;
 }
 
+button.ghost:hover
+{
+    background-color: #75E6DA;
+}
 form
 {
     background-color: white;
@@ -87,7 +98,7 @@ input
 {
     background-color: #eee;
     border: none;
-    padding: 12px 15px;
+    padding: 10px 13px;
     margin: 8px 0;
     width: 100%;
 }
@@ -117,6 +128,7 @@ input
     position: relative;
     overflow: hidden;
     width: 768px;
+    height: 550px;
     max-width: 100%;
     min-height: 480px;
 }
@@ -204,8 +216,8 @@ input
 .overlay
 {
     background: #9ccbff;
-    background: -webkit-linear-gradient(to right, #b2e6ff, #9ccbff);
-    background: linear-gradient(to right, #b2e6ff, #9ccbff);
+    background: -webkit-linear-gradient(to right, #189AB4, #05445E);
+    background: linear-gradient(to right, #189AB4, #05445E);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -258,4 +270,31 @@ input
 .container.right-panel-active .overlay-right
 {
     transform: translateX(20%);
+}
+
+.password-status
+{
+    color: white;
+    display: inline-block;
+    border: none;
+    padding: 4px 4px;
+    margin: 10px 8px;
+    width: 100%;
+    font-size: 85%;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.errMessage
+{
+    display: inline-block;
+    width: 286px;
+    height: 30px;
+    font-weight: 540;
+    border: none;
+    font-size: 85%;
+    padding: 4px 2px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: white;
 }
