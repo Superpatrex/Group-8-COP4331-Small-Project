@@ -101,9 +101,7 @@ function validateCredentials(first, last, pass, user)
 	let userNameRestriction = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{7,20}$/
 	let passRestriction = /(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}$/
 	let nameRestriction = /(?=.*[a-zA-Z])./
-	let fName = document.getElementById("first-name").value;
-    let lName = document.getElementById("last-name").value;
-
+	
 	if (userNameRestriction.test(user) == false)
 		return false;
 	else if (nameRestriction.test(last) == false || nameRestriction.test(first) == false)
@@ -129,7 +127,7 @@ function doLogin()
 
 	let jsonPayload = JSON.stringify(tmp);
 	
-	let url = urlBase + 'login.' + extension;
+	let url = urlBase + 'Login.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -182,7 +180,7 @@ function showRequirements(text)
 function submitForm()
 {	
 	firstName = document.getElementById("first-name").value;
-    lastName = document.getElementById("last-name").value;
+   	lastName = document.getElementById("last-name").value;
 
     let username = document.getElementById("new-username").value;
     let password = document.getElementById("new-password").value;
@@ -203,7 +201,7 @@ function submitForm()
 
 	    let jsonPayload = JSON.stringify(tmp);
 
-	    let url = urlBase + 'login.' + extension;
+	    let url = urlBase + 'AddUser.' + extension;
 	    let xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
