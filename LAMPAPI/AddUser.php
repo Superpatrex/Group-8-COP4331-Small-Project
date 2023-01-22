@@ -24,7 +24,7 @@
 
     function getRequestInfo()
     {
-        return json_decode(file_put_contents('php://input'), true);
+        return json_decode(file_get_contents('php://input'), true);
     }
 
     function sendResultInfoAsJason($obj)
