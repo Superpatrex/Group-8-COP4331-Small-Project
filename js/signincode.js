@@ -12,7 +12,7 @@ signInButton.addEventListener('click', () => {
 });
 
 // ** NEEDS TO BE CHANGED (maybe) **
-const urlBase = 'http://jackandrewscs.com/';
+const urlBase = 'http://206.189.190.78/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -87,7 +87,7 @@ function saveCookie()
 
 function validateLogIn(username, password)
 {
-	let userNameRestriction = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{7,20}$/
+	let userNameRestriction = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{6,20}$/
 
 	// Checks for valid username or empty password on login
 	if (userNameRestriction.test(username) == false)
@@ -98,16 +98,35 @@ function validateLogIn(username, password)
 
 function validateCredentials(first, last, pass, user)
 {
-	let userNameRestriction = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{7,20}$/
-	let passRestriction = /(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}$/
+	let userNameRestriction = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{6,20}$/
+	let passRestriction = /(?=.*\d)(?=.*[A-Za-z])(?=.*[?!@#$%^&*]).{8,32}$/
 	let nameRestriction = /(?=.*[a-zA-Z])./
 	
-	if (userNameRestriction.test(user) == false)
+	if (nameRestriction.test(last) == false || nameRestriction.test(first) == false)
+	{
+		document.getElementById("signUpErrMessage").innerHTML="Your First/Last name must include:<br>- At least one alphabetical character";
+    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+    	document.getElementById("signUpErrMessage").style.height="65px";
 		return false;
-	else if (nameRestriction.test(last) == false || nameRestriction.test(first) == false)
+	}
+
+	else if (userNameRestriction.test(user) == false)
+	{
+		document.getElementById("signUpErrMessage").innerHTML="Your username must:<br>- Include at least one letter<br>- Be between 7-20 characters";
+    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+    	document.getElementById("signUpErrMessage").style.height="75px";
 		return false;
+	}
+
 	else if (passRestriction.test(pass) == false)
+	{
+		document.getElementById("signUpErrMessage").innerHTML="Your password must contain:<br>- At least 1 uppercase/lowercase letter<br>- At least 1 number<br>- At least 1 special character (?!@#$%^&*_=+-)<br>- At least 8 characters, but no more than 32";
+    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+    	document.getElementById("signUpErrMessage").style.height="105px";
+    	document.getElementById("signUpErrMessage").style.width="360px";
 		return false;
+	}
+
 	return true;
 }
 function doLogin()
@@ -115,20 +134,23 @@ function doLogin()
 	userId = 0;
 	firstName = "";
 	lastName = "";
-	
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
 
 	// Stops login process if no input
 	if (validateLogIn(login, password) == false)
-		return;
+ {
+    document.getElementById("logInErrMessage").innerHTML = "Username or password incorrect.";
+	  document.getElementById("logInErrMessage").style.backgroundColor = "#ff6242";
+   return;
+ }
+		
 
 	let tmp = {login:login, password:password};
 
 	let jsonPayload = JSON.stringify(tmp);
 	
-	let url = urlBase + 'Login.' + extension;
-
+	let url = urlBase + '/Login.' + extension;
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -144,7 +166,7 @@ function doLogin()
 				
 				// If no data found
 				if( userId < 1 )
-				{		
+				{         
 					document.getElementById("logInErrMessage").innerHTML = "Username or password incorrect.";
 					document.getElementById("logInErrMessage").style.backgroundColor = "#ff6242";
 					return;
@@ -156,7 +178,7 @@ function doLogin()
 				saveCookie();
 				
 				// Changes site to contacts
-				window.location.href = "contacts.html";
+        window.location.href = "contactPage.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -165,14 +187,6 @@ function doLogin()
 	{
 		document.getElementById("logInErrMessage").innerHTML = err.message;
 		document.getElementById("logInErrMessage").style.backgroundColor = "#ff6242";
-	}
-}
-
-function showRequirements(text)
-{
-	if (text.validity.patternMismatch)
-	{
-		text.setCustomValidity("Your password must contain:\nAt least 1 uppercase/lowercase letter\nAt least 1 number\nAt least 1 special character (!@#$%^&*_=+-)\nAt least 8 characters, but no more than 32");
 	}
 }
 
@@ -187,21 +201,15 @@ function submitForm()
 
     // Stops submission process if credentials aren't correct
     if (validateCredentials(firstName, lastName, password, username) == false || flag == false)
-    	return;
+      return;
 
     else
     {
-	    let tmp = 
-	    {
-	        firstName: firstName,
-	        lastName: lastName,
-	        login: username,
-	        password: password
-	    };
-
+	    let tmp = {firstName: firstName, lastName: lastName, login: username, password: password};
+         
 	    let jsonPayload = JSON.stringify(tmp);
-
-	    let url = urlBase + 'AddUser.' + extension;
+      
+	    let url = urlBase + '/AddUser.' + extension;
 	    let xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -215,18 +223,19 @@ function submitForm()
 	            if (this.readyState == 4 && this.status == 409)
 	            {
 	                document.getElementById("signUpErrMessage").innerHTML="User already exists.";
-					document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+					        document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+                  document.getElementById("signUpErrMessage").style.height="35px";
 	                return;
 	            }
 
 	            // When new user is added
 	            if (this.readyState == 4 && this.status == 200)
 	            {
-
-	                let jsonObject = JSON.parse(xhr.responseText);
+	                let jsonObject = JSON.parse(jsonPayload);
 	                userId = jsonObject.id;
 	                document.getElementById("signUpErrMessage").innerHTML="User created!";
 	                document.getElementById("signUpErrMessage").style.backgroundColor="#3cb371";
+                  document.getElementById("signUpErrMessage").style.height="35px";
 	                firstName = jsonObject.firstName;
 	                lastName = jsonObject.lastName;
 	                saveCookie();
