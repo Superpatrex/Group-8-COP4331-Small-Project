@@ -277,7 +277,7 @@ input
     color: white;
     display: inline-block;
     border: none;
-    padding: 4px 4px;
+    padding: 12px 30px;
     margin: 10px 8px;
     width: 100%;
     font-size: 85%;
@@ -288,12 +288,26 @@ input
 .errMessage
 {
     display: inline-block;
-    width: 286px;
+    width: 330px;
     height: 30px;
     font-weight: 540;
     border: none;
     font-size: 85%;
-    padding: 4px 2px;
+    padding: 3px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    color: white;
+}
+
+#signUpErrMessage
+{
+    display: inline-block;
+    width: 330px;
+    height: 70px;
+    font-weight: 540;
+    border: none;
+    font-size: 80%;
+    padding: 4px 4px;
     margin-bottom: 15px;
     border-radius: 5px;
     color: white;
