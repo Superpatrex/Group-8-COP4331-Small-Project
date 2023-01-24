@@ -9,25 +9,24 @@
 </head>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form id="signup" method="post">
+        <form action="#" method="post">
             <h1>Create Account</h1>
             <input title="Please enter your first name" type="text" id="first-name" required placeholder="First name" pattern="[a-zA-Z]+"/>
             <input title="Please enter your last name" type="text" id="last-name" required placeholder="Last name" pattern="[a-zA-Z]+"/>
-            <input title="Please enter your username" type="text" id ="new-username" required placeholder="Username" minlength = "7" maxlength="20"/>
-            <input title="Please enter your password" type="password" id = "new-password" onkeyup="checkPassword()" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$" oninput="showRequirements(this)"/>
-            <input title="Please confirm your password" type="password" id ="confirm-password" onkeyup="checkPassword()" required placeholder="Confirm password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/>
+            <input title="Please enter your username" type="text" id ="username" required placeholder="Username" minlength = "7" maxlength="20"/>
+            <input title="Please enter your password" type="password" id = "password" onkeyup="checkPassword()" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?!@#$%^&*_=+-]).{8,32}$" oninvalid="showRequirements(this)" oninput="showRequirements(this)"/>
+            <input title="Please confirm your password" type="password" id ="confirm-password" onkeyup="checkPassword()" required placeholder="Confirm password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?!@#$%^&*_=+-]).{8,32}$"/>
             <p class="password-status" id="password-status"></p>
-            <button type="submit" class="signUpButton" onclick="submitForm()">Sign Up</button>
-            <p id="signUpErrMessage" class="errMessage"></p>
+            <button id="signup-button">Sign Up</button>
+            <p id="errMessage" class="errMessage"></p>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form id="signin" method="post">
+        <form action="#">
             <h1>Sign In</h1>
-            <input type="username" required placeholder="Username" id="username">
-            <input type="password" required placeholder="Password" id="password">
-            <button type="submit" class="logInButton" onclick="doLogin()">Sign In</button>
-            <p id="logInErrMessage" class="errMessage"></p>
+            <input type="username" required placeholder="Username" minlength = "7" maxlength="20">
+            <input type="password" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$">
+            <button>Sign In</button>
         </form>
     </div>
     <div class="overlay-container">
