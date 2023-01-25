@@ -101,6 +101,7 @@ input
     padding: 10px 13px;
     margin: 8px 0;
     width: 100%;
+    display: inline-block;
 }
 
 .social-container
@@ -270,6 +271,18 @@ input
 .container.right-panel-active .overlay-right
 {
     transform: translateX(20%);
+}
+
+.eye
+{
+    width: 0%;
+    height: 0%;
+    font-size: 17px;
+    color: #8b8b8b;
+    position: relative;
+    margin-left: 220px;
+    transform: translateY(-33px);
+    display: inline-block;
 }
 
 .password-status
