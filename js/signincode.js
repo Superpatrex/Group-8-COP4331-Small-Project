@@ -1,14 +1,37 @@
 
+// For animations
 const signInButton = document.getElementById('signIn');
 const signUpButton = document.getElementById('signUp');
 const container = document.getElementById('container');
 
-signUpButton.addEventListener('click', () => {
+signUpButton.addEventListener('click', () => 
+{
 	container.classList.add('right-panel-active');
 });
 
-signInButton.addEventListener('click', () => {
+signInButton.addEventListener('click', () => 
+{
 	container.classList.remove('right-panel-active');
+});
+
+// For eye icon
+document.querySelectorAll(".eye").forEach(eyeIcon =>
+{
+	eyeIcon.addEventListener("click", () =>
+	{
+		let passwordField = document.getElementById("new-password");
+		{
+			if (passwordField.type === "password")
+			{
+				passwordField.type = "text";
+				eyeIcon.classList.replace("bx-hide", "bx-show");
+				return;
+			}
+
+			passwordField.type = "password";
+			eyeIcon.classList.replace("bx-show", "bx-hide");
+		}
+	});
 });
 
 // ** NEEDS TO BE CHANGED (maybe) **
@@ -205,50 +228,49 @@ function submitForm()
 
     else
     {
-	    let tmp = {firstName: firstName, lastName: lastName, login: username, password: password};
-         
-	    let jsonPayload = JSON.stringify(tmp);
-      
-	    let url = urlBase + '/AddUser.' + extension;
-	    let xhr = new XMLHttpRequest();
-		xhr.open("POST", url, true);
-		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		  let tmp = {firstName: firstName, lastName: lastName, login: username, password: password};
+	         
+		  let jsonPayload = JSON.stringify(tmp);
+	      
+		  let url = urlBase + '/AddUser.' + extension;
+		  let xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-		try
-		{
-	        xhr.onreadystatechange = function () 
-	        {
+			try
+			{
+		    xhr.onreadystatechange = function () 
+		    {
 
-	        	// For when the username already exists in database
-	            if (this.readyState == 4 && this.status == 409)
-	            {
-	                document.getElementById("signUpErrMessage").innerHTML="User already exists.";
-					        document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
-                  document.getElementById("signUpErrMessage").style.height="35px";
-	                return;
-	            }
+		    	// For when the username already exists in database
+		        if (this.readyState == 4 && this.status == 409)
+		        {
+		            document.getElementById("signUpErrMessage").innerHTML="User already exists.";
+				        document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+		            document.getElementById("signUpErrMessage").style.height="35px";
+		            return;
+		        }
 
-	            // When new user is added
-	            if (this.readyState == 4 && this.status == 200)
-	            {
-	                let jsonObject = JSON.parse(jsonPayload);
-	                userId = jsonObject.id;
-	                document.getElementById("signUpErrMessage").innerHTML="User created!";
-	                document.getElementById("signUpErrMessage").style.backgroundColor="#3cb371";
-                  document.getElementById("signUpErrMessage").style.height="35px";
-	                firstName = jsonObject.firstName;
-	                lastName = jsonObject.lastName;
-	                saveCookie();
-	            }
-	        };
-	        xhr.send(jsonPayload);
-	    }
-	    // Displays any other error
-	    catch (err) 
-	    {
-	        document.getElementById("signUpErrMessage").innerHTML = err.message;
-	        document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
-	    }
+		        // When new user is added
+		        if (this.readyState == 4 && this.status == 200)
+		        {
+		            let jsonObject = JSON.parse(jsonPayload);
+		            userId = jsonObject.id;
+		            document.getElementById("signUpErrMessage").innerHTML="User created!";
+		            document.getElementById("signUpErrMessage").style.backgroundColor="#3cb371";
+		            document.getElementById("signUpErrMessage").style.height="35px";
+		            firstName = jsonObject.firstName;
+		            lastName = jsonObject.lastName;
+		            saveCookie();
+		        }
+		    };
+		    xhr.send(jsonPayload);
+			}
+			// Displays any other error
+			catch (err) 
+			{
+	    	document.getElementById("signUpErrMessage").innerHTML = err.message;
+	    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+			}
 	}
-    
 }
