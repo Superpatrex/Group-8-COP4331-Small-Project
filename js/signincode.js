@@ -77,26 +77,35 @@ function readCookie()
 	userId = -1;
 	let data = document.cookie;
 	let splits = data.split(",");
+
 	for (var i = 0; i < splits.length; i++) 
 	{
 		let thisOne = splits[i].trim();
 		let tokens = thisOne.split("=");
 
-		if (tokens[0] == "firstName")
+		if( tokens[0] == "firstName" )
+		{
 			firstName = tokens[1];
-		else if( tokens[0] == "lastName")
+		}
+		else if( tokens[0] == "lastName" )
+		{
 			lastName = tokens[1];
-		else if( tokens[0] == "userId")
+		}
+		else if( tokens[0] == "userId" )
+		{
 			userId = parseInt(tokens[1].trim());
+		}
 	}
 	
-	if (userId < 0)
-		window.location.href = "login.html";
+	// Checks if cookie doesn't exist
+	if( userId < 0 )
+	{
+		window.location.href = "Login.html";
+	}
 
 	else
 	{
-		// change "username" to ID of div in contacts
-		document.getElementById("username").innerHTML = "Welcome back," + firstName + " " + lastName +" !";
+		document.getElementById("userFirstName").innerHTML = "Hello, " + firstName + "!";
 	}
 }
 

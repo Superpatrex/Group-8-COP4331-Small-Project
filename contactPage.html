@@ -4,29 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="text/javascript" src="js/md5.js"></script>
-	<script type="text/javascript" src="js/code.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/contactsStyles.css" /> 
-    <title>Link CSS to HTML</title>
+	<script type="text/javascript" src="js/signincode.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/contactsStyles.css"/>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', 
+        function ()
+        {
+            readCookie();
+            loadContactInfo();
+        });
+    </script> 
+    <title>Contact Manager</title>
 </head>
-
 <body>
-    <div class="top">
+    <div>
         <nav>
-            <h1>Small Project Rough</h1>
+            <h1 id="userFirstName">Welcome!</h1>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contributions.html">Contributions</a></li>
-                <li><a href="https://github.com/Superpatrex/Group-8-COP4331-Small-Project/">Code</a></li>
-                <li><a href="#">Blank</a></li>
+                <li><a href="index.html" alt="Home">Home</a></li>
+                <li><a href="contributions.html" alt="Contributions">Contributions</a></li>
+                <li><a href="https://github.com/Superpatrex/Group-8-COP4331-Small-Project/" alt="Code">Code</a></li>
+                <li><a href="Login.html" alt="Log Out"onclick="doLogout()">Logout</a></li>
             </ul>
-            <img src="images/icons8-person-60.png" alt="User-Picture">
         </nav>
     </div>
-    <img src="images/icons8-person-60.png" alt="Profile">
-    <img src="images/icons8-gears-50.png" alt="Settings">
-    <img src="images/icons8-information-60.png" alt="Help">
-    <img src="images/icons8-day-and-night-50.png" alt="DarkMode" onclick="toggleDarkMode()">        
-    <img src="images/icons8-logout-60.png" alt="LogOut">
+    <input id="search-bar" type="text" placeholder="Search..">
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>You have no contacts to display.</td>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
