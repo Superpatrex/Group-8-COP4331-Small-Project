@@ -20,13 +20,12 @@ body
 h1 
 {
     font-weight: bold;
-    margin: 0 -3px;
-    font-size: 30px;
+    margin: 0;
 }
 
 p
 {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
@@ -44,8 +43,8 @@ a
 button
 {
     border-radius: 20px;
-    border: 1px solid #05445E;
-    background-color: #05445E;
+    border: 1px solid #9ccbff;
+    background-color: #9ccbff;
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -54,11 +53,6 @@ button
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
-}
-
-button:hover
-{
-    background-color: #189AB4;
 }
 
 button:active
@@ -73,15 +67,10 @@ button:focus
 
 button.ghost
 {
-    background: white;
+    background: transparent;
     border-color: white;
-    color: #05445E;
 }
 
-button.ghost:hover
-{
-    background-color: #75E6DA;
-}
 form
 {
     background-color: white;
@@ -98,10 +87,9 @@ input
 {
     background-color: #eee;
     border: none;
-    padding: 10px 13px;
+    padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
-    display: inline-block;
 }
 
 .social-container
@@ -129,7 +117,6 @@ input
     position: relative;
     overflow: hidden;
     width: 768px;
-    height: 550px;
     max-width: 100%;
     min-height: 480px;
 }
@@ -217,8 +204,8 @@ input
 .overlay
 {
     background: #9ccbff;
-    background: -webkit-linear-gradient(to right, #189AB4, #05445E);
-    background: linear-gradient(to right, #189AB4, #05445E);
+    background: -webkit-linear-gradient(to right, #b2e6ff, #9ccbff);
+    background: linear-gradient(to right, #b2e6ff, #9ccbff);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -271,57 +258,4 @@ input
 .container.right-panel-active .overlay-right
 {
     transform: translateX(20%);
-}
-
-.eye
-{
-    width: 0%;
-    height: 0%;
-    font-size: 17px;
-    color: #8b8b8b;
-    position: relative;
-    margin-left: 220px;
-    transform: translateY(-33px);
-    display: inline-block;
-}
-
-.password-status
-{
-    color: white;
-    display: inline-block;
-    border: none;
-    padding: 12px 30px;
-    margin: 10px 8px;
-    width: 100%;
-    font-size: 85%;
-    font-weight: 700;
-    border-radius: 5px;
-}
-
-.errMessage
-{
-    display: inline-block;
-    width: 330px;
-    height: 30px;
-    font-weight: 540;
-    border: none;
-    font-size: 85%;
-    padding: 3px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    color: white;
-}
-
-#signUpErrMessage
-{
-    display: inline-block;
-    width: 330px;
-    height: 70px;
-    font-weight: 540;
-    border: none;
-    font-size: 80%;
-    padding: 4px 4px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    color: white;
 }
