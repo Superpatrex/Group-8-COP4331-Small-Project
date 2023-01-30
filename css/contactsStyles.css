@@ -15,6 +15,11 @@
     box-sizing: border-box;
 }
 
+h1
+{
+    display: inline-block;
+    width: 13em;
+}
 
 .dark-mode
 {
@@ -33,17 +38,8 @@ nav
     justify-content: space-between;
     position: relative;
     color: white;
-    font-size: 20px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-}
-
-
-.User-Picture
-{
-    width: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 30px;
+    font-size: 1.2em;
+    box-shadow: 0 2em 4em 0 rgba(0,0,0,.2);
 }
 
 nav ul
@@ -76,57 +72,250 @@ nav ul li a:hover
     box-shadow: 0 0 6px rgba(255,255,255, .2);
 }
 
+#form-err-message, #form-err-message-edit
+{
+    color: white;
+    display: inline-block;
+    margin-top: 1em;
+    background: #ff6242;
+    border-radius: 10px;
+    font-size: 1.125em;
+    font-weight: bold;
+}
+
 .content
 {
     position: relative;
     display: block;
-    width: 60vw;
-    height: 70vh;
-    margin: auto;
-    margin-top: 5%;
+    width: 65em;
+    height: 33em;
     border: none;
     background: #189AB4;
     border-radius: 10px;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.add-contact-div
+{
+    position: relative;
+    display: none;
+    width: 34em;
+    height: 24em;
+    border: .13em solid black;
+    background:  #189AB4;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 3%;
+    padding-top: 3em;
+    text-align: center;
+}
+
+label
+{
+    display: inline-flex;
+    color: white;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding-right: 1em;
+    width: 7em;
+    padding-bottom: 1em;
+    text-shadow: .3em .3em .3em grey;
+}
+
+form input
+{
+    padding: .4em;
+    border-radius: 5px;
+    width: 17em;
+    border: none;
+    font-size: 1em;
+    height: 2em;
+    display: inline-block;
+    outline: none;
+    box-shadow: .3em .3em .3em grey;
 }
 
 table
 {
-    border: 2px solid black;
+    border: .13em solid black;
     margin: auto;
-    position: relative;
-    width: 60vw;
-    height: 70vh;
-    text-align: center;
-    padding-top: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    padding: 20px;
     border-collapse: seperate;
     border-radius: 10px;
+    vertical-align: top;
 }
 
 th
 {
-    word-spacing: 2px;
     color: white;
-    font-size: 18px;
-    margin-right: 8vw;
-    display: inline-block;
+    font-size: 1.5em;
+    padding-bottom: .5em;
+    text-shadow: .3em .3em .3em grey;
+}
+
+td
+{
+    color: white;
+    vertical-align: top;
+    font-size: 1em;
+    padding: 0px;
 }
 
 #search-bar
 {
     margin: auto;
     position: relative;
+    box-shadow: .3em .3em .3em grey;
+    border: .13em solid black;
+    outline: none;
     border-radius: 5px;
     display: flex;
-    position: relative;
-    margin-top: 8vh;
-    margin-bottom: -8vh;
-    width: 20vw;
-    height: 4vh;
+    margin-top: 4em;
+    margin-bottom: -5em;
+    width: 20em;
+    height: 2em;
     padding: 10px;
 }
 
-td
+.addIcon
 {
-    font-size: 20px;
+    position: relative;
     color: white;
+    display: inline-block;
+    font-size: 2em;
+    padding: 6px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.col
+{
+    position: relative;
+    display: inline-block;
+    margin-left: 73%;
+    top: 1.5em;
+    background: #189AB4;
+    border-radius: 50%;
+    padding: .2em;
+    border: .1em solid black;
+}
+
+#submit-contact-info
+{
+    border-radius: 20px;
+    border: none;
+    background-color: #05445E;
+    color: white;
+    font-size: .9em;
+    font-weight: bold;
+    padding: 1em 2em;
+    letter-spacing: .1em;
+    margin-top: .5em;
+    cursor: pointer;
+}
+
+#submit-contact-info:hover
+{
+    background-color: #3cb371;
+}
+
+.error
+{
+  border: .13em solid black;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  line-height: 33em;
+  display: none;
+}
+
+#noResultsErr
+{
+  font-size: 1.75em;
+}
+
+.deleteIcon, .editIcon
+{
+  font-size: 1.3em;
+  padding: 2px;
+}
+
+.deleteIcon:hover
+{
+  color: #ff6242;
+  cursor: pointer;
+}
+
+.editIcon:hover
+{
+  color: #66FF00;
+  cursor: pointer;
+}
+
+p
+{
+    color: white;
+    display: inline-block;
+    font-size: 1.125em;
+    font-weight: bold;
+}
+
+#Yes
+{
+    border-radius: 15px;
+    border: none;
+    background-color: #66FF00;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+    top: 3em;
+    display: inline-block;
+    width: 4em;
+}
+
+#No
+{
+    border-radius: 15px;
+    border: none;
+    background-color: #ff6242;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em;
+    width: 4em;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+    top: 3em;
+    display: inline-block;
+}
+
+.edit
+{
+    display: none;
+}
+
+#submit-contact-edit
+{
+    border-radius: 15px;
+    border: none;
+    background-color: #66FF00;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em;
+    width: auto;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+    top: .5em;
 }

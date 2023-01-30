@@ -20,14 +20,17 @@ document.querySelectorAll(".eye").forEach(eyeIcon =>
 	eyeIcon.addEventListener("click", () =>
 	{
 		let passwordField = document.getElementById("new-password");
+    let confirmField = document.getElementById("confirm-password");
 		{
 			if (passwordField.type === "password")
 			{
 				passwordField.type = "text";
+        confirmField.type = "text";
 				eyeIcon.classList.replace("bx-hide", "bx-show");
 				return;
 			}
-
+      
+      confirmField.type = "password";
 			passwordField.type = "password";
 			eyeIcon.classList.replace("bx-show", "bx-hide");
 		}
@@ -69,43 +72,6 @@ function checkPassword()
 		passwordStatus.innerText = "Your passwords don't match. Please try again."
 		passwordStatus.style.backgroundColor="#ff6242";
 		flag = false;
-	}
-}
-
-function readCookie()
-{
-	userId = -1;
-	let data = document.cookie;
-	let splits = data.split(",");
-
-	for (var i = 0; i < splits.length; i++) 
-	{
-		let thisOne = splits[i].trim();
-		let tokens = thisOne.split("=");
-
-		if( tokens[0] == "firstName" )
-		{
-			firstName = tokens[1];
-		}
-		else if( tokens[0] == "lastName" )
-		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt(tokens[1].trim());
-		}
-	}
-	
-	// Checks if cookie doesn't exist
-	if( userId < 0 )
-	{
-		window.location.href = "Login.html";
-	}
-
-	else
-	{
-		document.getElementById("userFirstName").innerHTML = "Hello, " + firstName + "!";
 	}
 }
 
@@ -168,7 +134,8 @@ function doLogin()
 	lastName = "";
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
-
+  let hash = md5(password);
+  
 	// Stops login process if no input
 	if (validateLogIn(login, password) == false)
  {
@@ -178,7 +145,7 @@ function doLogin()
  }
 		
 
-	let tmp = {login:login, password:password};
+	let tmp = {login:login, password:hash};
 
 	let jsonPayload = JSON.stringify(tmp);
 	
@@ -225,19 +192,20 @@ function doLogin()
 // To create account 
 function submitForm()
 {	
-	firstName = document.getElementById("first-name").value;
+		firstName = document.getElementById("first-name").value;
    	lastName = document.getElementById("last-name").value;
 
     let username = document.getElementById("new-username").value;
     let password = document.getElementById("new-password").value;
-
+    let hash = md5(password);
+    
     // Stops submission process if credentials aren't correct
     if (validateCredentials(firstName, lastName, password, username) == false || flag == false)
       return;
-
+      
     else
     {
-		  let tmp = {firstName: firstName, lastName: lastName, login: username, password: password};
+		  let tmp = {userId: userId, firstName: firstName, lastName: lastName, login: username, password: hash};
 	         
 		  let jsonPayload = JSON.stringify(tmp);
 	      
@@ -264,10 +232,10 @@ function submitForm()
 		        if (this.readyState == 4 && this.status == 200)
 		        {
 		            let jsonObject = JSON.parse(jsonPayload);
-		            userId = jsonObject.id;
 		            document.getElementById("signUpErrMessage").innerHTML="User created!";
 		            document.getElementById("signUpErrMessage").style.backgroundColor="#3cb371";
 		            document.getElementById("signUpErrMessage").style.height="35px";
+		            userId = jsonObject.id;
 		            firstName = jsonObject.firstName;
 		            lastName = jsonObject.lastName;
 		            saveCookie();
