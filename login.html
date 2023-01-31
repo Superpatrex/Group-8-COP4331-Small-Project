@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!-- Basic HTML meta data -->
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="css/loginSignUpStyles.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
 </head>
+<!-- Main panel -->
 <div class="container" id="container">
+    <!-- Right sign up panel -->
     <div class="form-container sign-up-container">
         <form id="signup" method="post">
             <h1>Create Account</h1>
@@ -22,6 +25,7 @@
             <p id="signUpErrMessage" class="errMessage"></p>
         </form>
     </div>
+    <!-- Left sign up panel -->
     <div class="form-container sign-in-container">
         <form id="signin" method="post">
             <h1>Sign In</h1>
@@ -33,11 +37,13 @@
     </div>
     <div class="overlay-container">
         <div class="overlay">
+            <!-- Welcome back panel with sign in option-->
             <div class="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>
                 <p>Please log in with your personal information</p>
                 <button class="ghost" id="signIn">Sign In</button>
             </div>
+            <!-- New user panel with sign up option -->
             <div class="overlay-panel overlay-right">
                 <h1>Hello New User!</h1>
                 <p>Enter your information to create an account</p>
