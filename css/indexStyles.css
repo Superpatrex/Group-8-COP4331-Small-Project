@@ -1,9 +1,11 @@
+/* Font */
 *{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
+/* Background image */
 .banner{
     width: 100%;
     height: 100vh;
@@ -13,6 +15,7 @@
     background-position: center;
 }
 
+/* These next few lines styles the naviagtion bar */
 .navbar{
     width: 85%;
     margin: auto;
@@ -55,6 +58,7 @@
     width: 100%;
 }
 
+/* These next few lines styles the center text */
 .content{
     width: 100%;
     position: absolute;
@@ -75,6 +79,7 @@
     line-height: 25px;
 }
 
+/* These next few lines style the button and creates the hover effect */
 button{
     width: 200px;
     padding: 15px 0;
