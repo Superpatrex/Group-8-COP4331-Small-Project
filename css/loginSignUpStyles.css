@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+/* Box bordering */
 *
 {
     box-sizing: border-box;
 }
 
+/* These next few lines styles the main panel */
 body
 {
     font-family: 'Montserrat', sans-serif;
@@ -41,6 +43,7 @@ a
     margin: 15px 0;
 }
 
+/* These next few lines styles the button and add special effects */
 button
 {
     border-radius: 20px;
@@ -82,6 +85,7 @@ button.ghost:hover
 {
     background-color: #75E6DA;
 }
+
 form
 {
     background-color: white;
@@ -94,6 +98,7 @@ form
     text-align: center;
 }
 
+/* Text field styling */
 input
 {
     background-color: #eee;
@@ -104,6 +109,7 @@ input
     display: inline-block;
 }
 
+/* These next few lines styles the sign in and sign up containers and adds a transition animation */
 .social-container
 {
     margin: 20px 0;
@@ -273,6 +279,7 @@ input
     transform: translateX(20%);
 }
 
+/* Styles the password eye */
 .eye
 {
     width: 0%;
@@ -285,6 +292,7 @@ input
     display: inline-block;
 }
 
+/* Styles the pop-up when the password don't match */
 .password-status
 {
     color: white;
@@ -298,6 +306,7 @@ input
     border-radius: 5px;
 }
 
+/* Styles the pop-up when there is a incorrect username or password */
 .errMessage
 {
     display: inline-block;
@@ -312,6 +321,7 @@ input
     color: white;
 }
 
+/* Styles the sign up error mesage */
 #signUpErrMessage
 {
     display: inline-block;
