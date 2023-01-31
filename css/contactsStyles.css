@@ -7,6 +7,8 @@
 
 
 /* DARKMODE SWITCH */
+
+/* Font and bordering of the page */
 *
 {
     margin: 0;
@@ -15,7 +17,7 @@
     box-sizing: border-box;
 }
 
-
+/* Dark mode color palette */
 .dark-mode
 {
    
@@ -23,6 +25,7 @@
     color: white;
 }
 
+/* Navigation bar handling */
 nav
 {
     background: linear-gradient(to right, #189AB4, #05445E);
@@ -37,7 +40,7 @@ nav
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
-
+/* Styles the user's picture */
 .User-Picture
 {
     width: 40px;
@@ -46,6 +49,7 @@ nav
     margin-left: 30px;
 }
 
+/* These next few lines styles the naviagtion bar links */
 nav ul
 {
     width: 100%;
@@ -76,6 +80,7 @@ nav ul li a:hover
     box-shadow: 0 0 6px rgba(255,255,255, .2);
 }
 
+/* Styles the middle blue panel */
 .content
 {
     position: relative;
@@ -89,6 +94,7 @@ nav ul li a:hover
     border-radius: 10px;
 }
 
+/* Styles and displays the contacts */
 table
 {
     border: 2px solid black;
@@ -102,6 +108,7 @@ table
     border-radius: 10px;
 }
 
+/* Table headers */
 th
 {
     word-spacing: 2px;
@@ -111,6 +118,7 @@ th
     display: inline-block;
 }
 
+/* Search bar styling */
 #search-bar
 {
     margin: auto;
@@ -125,6 +133,7 @@ th
     padding: 10px;
 }
 
+/* Contact display styling */
 td
 {
     font-size: 20px;
