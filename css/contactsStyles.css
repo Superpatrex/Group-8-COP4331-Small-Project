@@ -25,7 +25,7 @@
 
 nav
 {
-    background: linear-gradient(to right, #189AB4, #05445E);
+    background: linear-gradient(to right, #009688, #003c36);
     width: 100%;
     padding: 10px 10%;
     display: flex;
@@ -85,7 +85,7 @@ nav ul li a:hover
     margin: auto;
     margin-top: 5%;
     border: none;
-    background: #189AB4;
+    background: #009688;
     border-radius: 10px;
 }
 
