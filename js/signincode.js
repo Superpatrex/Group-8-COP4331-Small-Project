@@ -64,13 +64,13 @@ function checkPassword()
 	else if (confirm == password)
 	{
 		passwordStatus.innerText = "Passwords match!";
-		passwordStatus.style.backgroundColor="#3cb371";
+		passwordStatus.style.backgroundColor="#4caf50";
 		flag = true;
 	}
 	else
 	{
 		passwordStatus.innerText = "Your passwords don't match. Please try again."
-		passwordStatus.style.backgroundColor="#ff6242";
+		passwordStatus.style.backgroundColor="#f44336";
 		flag = false;
 	}
 }
@@ -103,7 +103,7 @@ function validateCredentials(first, last, pass, user)
 	if (nameRestriction.test(last) == false || nameRestriction.test(first) == false)
 	{
 		document.getElementById("signUpErrMessage").innerHTML="Your First/Last name must include:<br>- At least one alphabetical character";
-    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+    	document.getElementById("signUpErrMessage").style.backgroundColor="#f44336";
     	document.getElementById("signUpErrMessage").style.height="65px";
 		return false;
 	}
@@ -111,7 +111,7 @@ function validateCredentials(first, last, pass, user)
 	else if (userNameRestriction.test(user) == false)
 	{
 		document.getElementById("signUpErrMessage").innerHTML="Your username must:<br>- Include at least one letter<br>- Be between 7-20 characters";
-    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+    	document.getElementById("signUpErrMessage").style.backgroundColor="#f44336";
     	document.getElementById("signUpErrMessage").style.height="75px";
 		return false;
 	}
@@ -119,7 +119,7 @@ function validateCredentials(first, last, pass, user)
 	else if (passRestriction.test(pass) == false)
 	{
 		document.getElementById("signUpErrMessage").innerHTML="Your password must contain:<br>- At least 1 uppercase/lowercase letter<br>- At least 1 number<br>- At least 1 special character (?!@#$%^&*_=+-)<br>- At least 8 characters, but no more than 32";
-    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+    	document.getElementById("signUpErrMessage").style.backgroundColor="#f44336";
     	document.getElementById("signUpErrMessage").style.height="105px";
     	document.getElementById("signUpErrMessage").style.width="360px";
 		return false;
@@ -140,7 +140,7 @@ function doLogin()
 	if (validateLogIn(login, password) == false)
  {
     document.getElementById("logInErrMessage").innerHTML = "Username or password incorrect.";
-	  document.getElementById("logInErrMessage").style.backgroundColor = "#ff6242";
+	  document.getElementById("logInErrMessage").style.backgroundColor = "#f44336";
    return;
  }
 		
@@ -167,7 +167,7 @@ function doLogin()
 				if( userId < 1 )
 				{         
 					document.getElementById("logInErrMessage").innerHTML = "Username or password incorrect.";
-					document.getElementById("logInErrMessage").style.backgroundColor = "#ff6242";
+					document.getElementById("logInErrMessage").style.backgroundColor = "#f44336";
 					return;
 				}
 				
@@ -185,7 +185,7 @@ function doLogin()
 	catch(err)
 	{
 		document.getElementById("logInErrMessage").innerHTML = err.message;
-		document.getElementById("logInErrMessage").style.backgroundColor = "#ff6242";
+		document.getElementById("logInErrMessage").style.backgroundColor = "#f44336";
 	}
 }
 
@@ -223,7 +223,7 @@ function submitForm()
 		        if (this.readyState == 4 && this.status == 409)
 		        {
 		            document.getElementById("signUpErrMessage").innerHTML="User already exists.";
-				        document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+				        document.getElementById("signUpErrMessage").style.backgroundColor="#f44336";
 		            document.getElementById("signUpErrMessage").style.height="35px";
 		            return;
 		        }
@@ -233,7 +233,7 @@ function submitForm()
 		        {
 		            let jsonObject = JSON.parse(jsonPayload);
 		            document.getElementById("signUpErrMessage").innerHTML="User created!";
-		            document.getElementById("signUpErrMessage").style.backgroundColor="#3cb371";
+		            document.getElementById("signUpErrMessage").style.backgroundColor="#4caf50";
 		            document.getElementById("signUpErrMessage").style.height="35px";
 		            userId = jsonObject.id;
 		            firstName = jsonObject.firstName;
@@ -247,7 +247,7 @@ function submitForm()
 			catch (err) 
 			{
 	    	document.getElementById("signUpErrMessage").innerHTML = err.message;
-	    	document.getElementById("signUpErrMessage").style.backgroundColor="#ff6242";
+	    	document.getElementById("signUpErrMessage").style.backgroundColor="#f44336";
 			}
 	}
 }

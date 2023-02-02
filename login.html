@@ -19,7 +19,7 @@
             <input title="Please enter your password" type="password" id = "new-password" onkeyup="checkPassword()" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/><i class='bx bx-hide eye' ></i>
             <input title="Please confirm your password" type="password" id ="confirm-password" onkeyup="checkPassword()" required placeholder="Confirm password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/>
             <p class="password-status" id="password-status"></p>
-            <button type="button" class="signUpButton" onclick="submitForm()">Sign Up</button>
+            <button type="button" class="signUpButton" onclick="submitForm()"><span></span>Sign Up</button>
             <p id="signUpErrMessage" class="errMessage"></p>
         </form>
     </div>
@@ -28,7 +28,7 @@
             <h1>Sign In</h1>
             <input type="username" required placeholder="Username" id="username">
             <input type="password" required placeholder="Password" id="password">
-            <button type="button"  id = "logInButton" class="logInButton" onclick="doLogin()">Sign In</button>
+            <button type="button"  id = "logInButton" class="logInButton" onclick="doLogin()"><span></span>Sign In</button>
             <p id="logInErrMessage" class="errMessage"></p>
         </form>
     </div>

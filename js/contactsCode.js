@@ -337,7 +337,7 @@ function showForm()
 		document.querySelector(".add-contact-div").style.display="block";
 		document.getElementById("search-bar").style.display="none";
 		document.querySelector(".addIcon").classList.replace("bxs-user-plus", "bx-x");
-		document.querySelector(".col").style.background="#ff6242";
+		document.querySelector(".col").style.background="#f44336";
 		formFlag = true;
 	}
 
@@ -349,7 +349,7 @@ function showForm()
 		document.querySelector(".content").style.display="block";
 		document.querySelector(".edit").style.display="none";
 		document.querySelector(".addIcon").classList.replace("bx-x", "bxs-user-plus");
-		document.querySelector(".col").style.background="#189AB4";
+		document.querySelector(".col").style.background="#009688";
     	document.getElementById("form-err-message").innerHTML="";
 		document.getElementById("form-err-message").style.padding="0";
 		document.getElementById("first-name").style.border="none";
@@ -437,7 +437,7 @@ function editContact(num)
 	document.getElementById("search-bar").value = "";
 	document.getElementById("search-bar").style.display = "none";
 	document.querySelector(".addIcon").classList.replace("bxs-user-plus", "bx-x");
-	document.querySelector(".col").style.background="#ff6242";
+	document.querySelector(".col").style.background="#f44336";
 	document.querySelector(".edit").style.display = "block";
 	formFlag = true;
 
