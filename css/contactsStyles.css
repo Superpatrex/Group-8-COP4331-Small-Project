@@ -31,7 +31,7 @@ h1
 
 nav
 {
-    background: linear-gradient(to right, #009688, #00695c);
+    background: transparent;
     width: 100%;
     padding: 10px 10%;
     display: flex;
@@ -53,24 +53,34 @@ nav ul li
 {
     display: inline-block;
     list-style: none;
-    margin: 10px 20px;
+    margin: 0px 20px;
+    position: relative;
 }
 
 nav ul li a
 {
     position: relative;
     color: white;
-    font-weight: bold;
+    text-transform: uppercase;
     text-decoration: none;
-    width: 100%;
-    padding: 1vw;
-    border-radius: 5px;
+    font-size: .8em;
 }
 
-nav ul li a:hover
+nav ul li:hover::after
 {
-    background-color: #009688;
-    box-shadow: 0 0 6px rgba(255,255,255, .2);
+    width: 100%;
+}
+
+nav ul li::after
+{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
 }
 
 #form-err-message, #form-err-message-edit
