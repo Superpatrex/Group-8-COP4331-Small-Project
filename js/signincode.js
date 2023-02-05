@@ -38,7 +38,7 @@ document.querySelectorAll(".eye").forEach(eyeIcon =>
 });
 
 // ** NEEDS TO BE CHANGED (maybe) **
-const urlBase = 'http://cop4331group/LAMPAPI';
+const urlBase = 'http://cop4331group.com/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -69,12 +69,13 @@ function checkPassword()
 	}
 	else
 	{
-		passwordStatus.innerText = "Your passwords don't match. Please try again."
+		passwordStatus.innerText = "Your passwords don't match!"
 		passwordStatus.style.backgroundColor="#f44336";
 		flag = false;
 	}
 }
 
+// Saves cookie 
 function saveCookie()
 {
 	let minutes = 20;
@@ -94,6 +95,7 @@ function validateLogIn(username, password)
 		return false;
 }
 
+// For validating a sign-up form
 function validateCredentials(first, last, pass, user)
 {
 	let userNameRestriction = /(?=.*[a-zA-Z])([a-zA-Z0-9-_]).{6,20}$/
@@ -120,13 +122,14 @@ function validateCredentials(first, last, pass, user)
 	{
 		document.getElementById("signUpErrMessage").innerHTML="Your password must contain:<br>- At least 1 uppercase/lowercase letter<br>- At least 1 number<br>- At least 1 special character (?!@#$%^&*_=+-)<br>- At least 8 characters, but no more than 32";
     	document.getElementById("signUpErrMessage").style.backgroundColor="#f44336";
-    	document.getElementById("signUpErrMessage").style.height="105px";
+    	document.getElementById("signUpErrMessage").style.height="109px";
     	document.getElementById("signUpErrMessage").style.width="360px";
 		return false;
 	}
 
 	return true;
 }
+
 function doLogin()
 {
 	userId = 0;
