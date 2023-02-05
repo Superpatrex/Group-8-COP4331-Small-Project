@@ -1,8 +1,9 @@
 let userId = 0;
-const urlBase = 'http://cop4331group/LAMPAPI';
+const urlBase = 'http://cop4331group.com/LAMPAPI';
 const extension = 'php';
 let objId = [];
 
+// Reads window cookie
 function readCookie()
 {
 	userId = -1;
@@ -64,17 +65,18 @@ function searchContacts()
           			table.innerHTML="";
           			document.querySelector(".content").style.display="none";
           			document.querySelector(".error").style.display="block";
-					return;
+					      return;
 				}
         
         		document.querySelector(".content").style.display="block";
         		document.querySelector(".error").style.display="none";
-				let newText = "";
-
+		        let newText = "";
+        
+        // Creates table for contacts
 				for (let i = 0; i < jsonObject.results.length; i++)
 				{	
 					newText +="<tr id='row"+i+"'>";
-          			newText +="<td><i class='bx bxs-edit-alt editIcon' onclick='editContact("+i+")' title='Edit Contact'></i><i class='bx bxs-trash-alt deleteIcon' onclick = 'deleteContact("+i+")' title='Delete Contact'></i></td>";
+  			  newText +="<td><i class='bx bxs-edit-alt editIcon' onclick='editContact("+i+")' title='Edit Contact'></i><i class='bx bxs-trash-alt deleteIcon' onclick = 'deleteContact("+i+")' title='Delete Contact'></i></td>";
 					newText +="<td id='fname"+i+"'>"+jsonObject.results[i].FirstName+"</td>";
 					newText +="<td id='lname"+i+"'>"+jsonObject.results[i].LastName+"</td>";
 					newText +="<td id='email"+i+"'>"+jsonObject.results[i].Email+"</td>";
@@ -114,8 +116,8 @@ function loadContacts()
 				if (jsonObject.error)
 				{
 					table.innerHTML="";
-          			document.querySelector(".content").style.display="none";
-          			document.querySelector(".error").style.display="block";
+  			  document.querySelector(".content").style.display="none";
+  			  document.querySelector(".error").style.display="block";
 					return;
 				}
 
@@ -124,9 +126,9 @@ function loadContacts()
 
 				for (let i = 0; i < jsonObject.results.length; i++)
 				{	
-          			objId[i] = jsonObject.results[i].ID;
+ 			    objId[i] = jsonObject.results[i].ID;
 					newText +="<tr id='row"+i+"'>";
-          			newText +="<td><i class='bx bxs-edit-alt editIcon' onclick='editContact("+i+")' title='Edit Contact'></i><i class='bx bxs-trash-alt deleteIcon' onclick = 'deleteContact("+i+")' title='Delete Contact'></i></td>";
+  			  newText +="<td><i class='bx bxs-edit-alt editIcon' onclick='editContact("+i+")' title='Edit Contact'></i><i class='bx bxs-trash-alt deleteIcon' onclick = 'deleteContact("+i+")' title='Delete Contact'></i></td>";
 					newText +="<td id='fname"+i+"'>"+jsonObject.results[i].FirstName+"</td>";
 					newText +="<td id='lname"+i+"'>"+jsonObject.results[i].LastName+"</td>";
 					newText +="<td id='email"+i+"'>"+jsonObject.results[i].Email+"</td>";
@@ -153,6 +155,7 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+// Validation for contact
 function validateInfo(firstName, lastName, email, phone)
 {
 	let nameRestriction = /(?=.*[a-zA-Z])./
@@ -238,6 +241,7 @@ function validateInfo(firstName, lastName, email, phone)
 	}
 }
 
+// Validate for edit contact field
 function validateInfoEdit(firstName, lastName, email, phone)
 {
 	let nameRestriction = /(?=.*[a-zA-Z])./
@@ -323,6 +327,7 @@ function validateInfoEdit(firstName, lastName, email, phone)
 	}
 }
 
+// To toggle divs
 let formFlag = false;
 function showForm()
 {
@@ -402,7 +407,7 @@ function addContact()
 		    	loadContacts();
 
 		    	// Swaps back to form to show new contact
-		        showForm();
+          showForm();
 		    }
 		};
 	xhr.send(jsonPayload);
@@ -443,9 +448,9 @@ function editContact(num)
 
 	// Sets input fields
 	let first = document.getElementById("fname" + workNumber).innerText;
-    let last = document.getElementById("lname" + workNumber).innerText;
-    let mail = document.getElementById("email" + workNumber).innerText;
-    let phone = document.getElementById("phone" + workNumber).innerText;
+  let last = document.getElementById("lname" + workNumber).innerText;
+  let mail = document.getElementById("email" + workNumber).innerText;
+  let phone = document.getElementById("phone" + workNumber).innerText;
 
 	document.getElementById("first-name-edit").value = first;
 	document.getElementById("last-name-edit").value = last;
@@ -464,6 +469,8 @@ function reallyEditContact()
 	{
 		return;
 	}
+    
+    // Grab object ID to use in JSON object
     let id = objId[workNumber];
     let data = {nfirstName: firstEdit, nlastName: lastEdit, nemail: mailEdit, nphoneNumber: phoneEdit, id: id};
     let jsonPayload = JSON.stringify(data);
@@ -477,6 +484,7 @@ function reallyEditContact()
     {
         xhr.onreadystatechange = function ()
         {
+            // Request OK
             if (this.readyState == 4 && this.status == 200)
             {
                 showForm();
@@ -485,12 +493,14 @@ function reallyEditContact()
         };
         xhr.send(jsonPayload);
     }
+    // This shouldn't trigger.
     catch (err)
     {
         return;
     }
 }
 
+// Closes GUIs and loads contacts
 function cancelAndLoad()
 {
 	document.querySelector(".del").style.display="none";
@@ -525,10 +535,12 @@ function reallyDeleteContact()
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
     try
     {  
+        // Request OK
         xhr.onreadystatechange = function () 
         {
             if (this.readyState == 4 && this.status == 200) 
             {
+                // Close GUIs and load new contacts data
                 cancelAndLoad();
             }
         };
