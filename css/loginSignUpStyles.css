@@ -25,6 +25,7 @@ nav
     padding: 10px 10%;
     padding-top: 0;
     display: flex;
+    top: -1.5em;
     align-items: center;
     justify-content: space-between;
     position: relative;
