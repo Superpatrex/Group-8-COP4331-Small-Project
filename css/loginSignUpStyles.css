@@ -6,7 +6,7 @@
 body
 {
     font-family: sans-serif;
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -22,10 +22,8 @@ nav
 {
     background: transparent;
     width: 100%;
-    padding: 10px 10%;
-    padding-top: 0;
+    padding: 30px 10%;
     display: flex;
-    top: -1.5em;
     align-items: center;
     justify-content: space-between;
     position: relative;
@@ -180,6 +178,7 @@ input
 .container
 {
     background-color: white;
+    margin: auto;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.24);
     position: relative;
