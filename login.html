@@ -5,9 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="js/signincode.js" defer></script>
+    <script type="text/javascript" src="js/md5.js" defer></script>
     <link rel="stylesheet" type="text/css" href="css/loginSignUpStyles.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
 </head>
+        <nav>
+            <h1 >Kontactz</h1>
+            <ul>
+                <li><a href="index.html" alt="Home">Home</a></li>
+                <li><a href="contributions.html" alt="Contributions">Contributions</a></li>
+                <li><a href="https://github.com/Superpatrex/Group-8-COP4331-Small-Project/" alt="Code">Code</a></li>
+            </ul>
+        </nav>
+
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <form id="signup" method="post">
@@ -18,7 +28,7 @@
             <input title="Please enter your password" type="password" id = "new-password" onkeyup="checkPassword()" required placeholder="Password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/><i class='bx bx-hide eye' ></i>
             <input title="Please confirm your password" type="password" id ="confirm-password" onkeyup="checkPassword()" required placeholder="Confirm password" minlength = "8" maxlength = "32" pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"/>
             <p class="password-status" id="password-status"></p>
-            <button type="button" class="signUpButton" onclick="submitForm()">Sign Up</button>
+            <button type="button" class="signUpButton" onclick="submitForm()"><span></span>Sign Up</button>
             <p id="signUpErrMessage" class="errMessage"></p>
         </form>
     </div>
@@ -27,7 +37,7 @@
             <h1>Sign In</h1>
             <input type="username" required placeholder="Username" id="username">
             <input type="password" required placeholder="Password" id="password">
-            <button type="button"  id = "logInButton" class="logInButton" onclick="doLogin()">Sign In</button>
+            <button type="button"  id = "logInButton" class="logInButton" onclick="doLogin()"><span></span>Sign In</button>
             <p id="logInErrMessage" class="errMessage"></p>
         </form>
     </div>

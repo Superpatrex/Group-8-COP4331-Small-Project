@@ -1,20 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-/*  white : rgb(255,255,255);
-    gray : rgb(200,200,200);
-    light blue : rgb(120, 230, 255);
-    blue gray : rpb(150,, 190, 220);
-    dark gray : rgb(105,105,105); */
-
+body
+{
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url(../images/northern_lights_1.jpg);
+    background-size: cover;
+}
 
 /* DARKMODE SWITCH */
 *
 {
     margin: 0;
     padding: 0;
-    font-family:'Montserrat', sans-serif;
+    font-family: sans-serif;
     box-sizing: border-box;
 }
 
+h1
+{
+    display: inline-block;
+    width: 13em;
+}
 
 .dark-mode
 {
@@ -25,7 +31,7 @@
 
 nav
 {
-    background: linear-gradient(to right, #189AB4, #05445E);
+    background: transparent;
     width: 100%;
     padding: 10px 10%;
     display: flex;
@@ -33,17 +39,8 @@ nav
     justify-content: space-between;
     position: relative;
     color: white;
-    font-size: 20px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-}
-
-
-.User-Picture
-{
-    width: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 30px;
+    font-size: 1.2em;
+    box-shadow: 0 2em 4em 0 rgba(0,0,0,.2);
 }
 
 nav ul
@@ -56,77 +53,295 @@ nav ul li
 {
     display: inline-block;
     list-style: none;
-    margin: 10px 20px;
+    margin: 0px 20px;
+    position: relative;
 }
 
 nav ul li a
 {
     position: relative;
     color: white;
-    font-weight: bold;
+    text-transform: uppercase;
     text-decoration: none;
-    width: 100%;
-    padding: 1vw;
-    border-radius: 5px;
+    font-size: .8em;
 }
 
-nav ul li a:hover
+nav ul li:hover::after
 {
-    background-color: #75E6DA;
-    box-shadow: 0 0 6px rgba(255,255,255, .2);
+    width: 100%;
+}
+
+nav ul li::after
+{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+#form-err-message, #form-err-message-edit
+{
+    color: white;
+    display: inline-block;
+    margin-top: 1em;
+    background: #f44336;
+    border-radius: 10px;
+    font-size: 1.125em;
+    font-weight: bold;
 }
 
 .content
 {
     position: relative;
     display: block;
-    width: 60vw;
-    height: 70vh;
-    margin: auto;
-    margin-top: 5%;
+    width: 65em;
+    height: 33em;
     border: none;
-    background: #189AB4;
+    background: #009688;
     border-radius: 10px;
+    margin: auto;
+    margin-top: 3%;
+}
+
+.add-contact-div
+{
+    position: relative;
+    display: none;
+    width: 34em;
+    height: 24em;
+    border: .13em solid black;
+    background: #009688;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 3%;
+    padding-top: 3em;
+    text-align: center;
+}
+
+label
+{
+    display: inline-flex;
+    color: white;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding-right: 1em;
+    width: 7em;
+    padding-bottom: 1em;
+    text-shadow: .3em .3em .3em grey;
+}
+
+form input
+{
+    padding: .4em;
+    border-radius: 5px;
+    width: 17em;
+    border: none;
+    font-size: 1em;
+    height: 2em;
+    display: inline-block;
+    outline: none;
+    box-shadow: .3em .3em .3em grey;
 }
 
 table
 {
-    border: 2px solid black;
+    border: .13em solid black;
     margin: auto;
-    position: relative;
-    width: 60vw;
-    height: 70vh;
-    text-align: center;
-    padding-top: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    padding: 20px;
     border-collapse: seperate;
     border-radius: 10px;
+    vertical-align: top;
 }
 
 th
 {
-    word-spacing: 2px;
     color: white;
-    font-size: 18px;
-    margin-right: 8vw;
-    display: inline-block;
+    font-size: 1.5em;
+    padding-bottom: .5em;
+    text-shadow: .3em .3em .3em grey;
+}
+
+td
+{
+    color: white;
+    vertical-align: top;
+    font-size: 1em;
+    padding: 0px;
 }
 
 #search-bar
 {
     margin: auto;
     position: relative;
+    box-shadow: .3em .3em .3em grey;
+    border: .13em solid black;
+    outline: none;
     border-radius: 5px;
     display: flex;
-    position: relative;
-    margin-top: 8vh;
-    margin-bottom: -8vh;
-    width: 20vw;
-    height: 4vh;
+    margin-top: 4em;
+    margin-bottom: -5em;
+    width: 20em;
+    height: 2.5em;
     padding: 10px;
 }
 
-td
+.addIcon
 {
-    font-size: 20px;
+    position: relative;
     color: white;
+    display: inline-block;
+    font-size: 2em;
+    padding: 6px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.col
+{
+    position: relative;
+    display: inline-block;
+    margin-left: 73%;
+    top: 1.5em;
+    background: #009688;
+    border-radius: 50%;
+    padding: .2em;
+    border: .1em solid black;
+}
+
+#submit-contact-info
+{
+    border-radius: 20px;
+    border: none;
+    background-color: #00695c;
+    color: white;
+    font-size: .9em;
+    font-weight: bold;
+    padding: 1em 2em;
+    letter-spacing: .1em;
+    margin-top: .5em;
+    cursor: pointer;
+}
+
+#submit-contact-info:hover
+{
+    background-color: #4caf50;
+}
+
+.error
+{
+  border: .13em solid black;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  line-height: 33em;
+  display: none;
+}
+
+#noResultsErr
+{
+  font-size: 1.75em;
+}
+
+.deleteIcon, .editIcon
+{
+  font-size: 1.3em;
+  padding: 2px;
+}
+
+.deleteIcon:hover
+{
+  color: #f44336;
+  cursor: pointer;
+}
+
+.editIcon:hover
+{
+  color: #66FF00;
+  cursor: pointer;
+}
+
+p
+{
+    color: white;
+    display: inline-block;
+    font-size: 1.125em;
+    font-weight: bold;
+}
+
+#Yes
+{
+    border-radius: 15px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+    top: 3em;
+    display: inline-block;
+    width: 4em;
+}
+
+#No
+{
+    border-radius: 15px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em;
+    width: 4em;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+    top: 3em;
+    display: inline-block;
+}
+
+#Yes:hover
+{
+    background-color: #009900; 
+}
+
+#No:hover
+{
+    background-color: #700000; 
+}
+
+.edit
+{
+    display: none;
+}
+
+#submit-contact-edit
+{
+    border-radius: 15px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em;
+    width: auto;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+    top: .5em;
+}
+
+#submit-contact-edit:hover
+{
+  background-color: #009900;
 }

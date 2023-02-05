@@ -4,45 +4,89 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<script type="text/javascript" src="js/signincode.js"></script>
+    <script type="text/javascript" src="js/contactsCode.js"></script>
     <link rel="stylesheet" type="text/css" href="css/contactsStyles.css"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', 
         function ()
         {
             readCookie();
-            loadContactInfo();
+            loadContacts();
         });
     </script> 
     <title>Contact Manager</title>
 </head>
 <body>
-    <div>
+    <div id="navbar">
         <nav>
             <h1 id="userFirstName">Welcome!</h1>
             <ul>
                 <li><a href="index.html" alt="Home">Home</a></li>
                 <li><a href="contributions.html" alt="Contributions">Contributions</a></li>
                 <li><a href="https://github.com/Superpatrex/Group-8-COP4331-Small-Project/" alt="Code">Code</a></li>
-                <li><a href="Login.html" alt="Log Out"onclick="doLogout()">Logout</a></li>
+                <li><a href="login.html" alt="Log Out"onclick="doLogout()">Logout</a></li>
             </ul>
         </nav>
     </div>
-    <input id="search-bar" type="text" placeholder="Search..">
+      <input id="search-bar" type="text" placeholder="Search.." title="Search A Contact" onkeyup="searchContacts()">
+    <div class="col">
+            <i class='bx bxs-user-plus addIcon' onclick="showForm()" title="Add User"></i>
+        </div>
     <div class="content">
-        <table>
+        <table id="table-info">
             <thead>
                 <tr>
+                    <th></th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>E-mail</th>
                     <th>Phone</th>
                 </tr>
             </thead>
-            <tbody>
-                <td>You have no contacts to display.</td>
+            <tbody id="table-body">
             </tbody>
         </table>
+    </div>
+    <div class="add-contact-div">
+        <form id="add-contact-form" method="post">
+            <label>First name:</label><input title="Contact's first name" type="text" id="first-name" required placeholder="John" pattern="[a-zA-Z]+"/>
+            <br>
+            <label>Last name:</label><input title="Contact's last name" type="text" id="last-name" required placeholder="Doe" pattern="[a-zA-Z]+"/>
+            <br>
+            <label>Email:</label><input title="Contact's email" type="email" id ="email" required placeholder="johndoe@gmail.com"/>
+            <br>
+            <label>Phone:</label><input title="Contact's phone number" type="text" id ="phone" required placeholder="XXX-XXX-XXXX"/>
+            <br>
+            <button type="button" id="submit-contact-info" onclick="addContact()">Add Contact</button>
+            <br>
+            <p id="form-err-message"></p>
+        </form>
+    </div>
+    <div class ="content error"><p id="noResultsErr">You do not have any contacts to display.</p></div>
+    <div class ="add-contact-div del">
+        <p>Are you sure you'd like to remove this contact?</p>
+        <br>
+        <button type="button" id="Yes" onclick="reallyDeleteContact();">Yes</button>
+        <br>
+        <br>
+        <br>
+        <button type="button" id="No" onclick="cancelAndLoad();">No</button>
+    </div>
+    <div class ="add-contact-div edit">
+        <form id="add-contact-form-edit" method="post">
+            <label>First name:</label><input title="Contact's first name" type="text" id="first-name-edit" required placeholder="John" pattern="[a-zA-Z]+"/>
+            <br>
+            <label>Last name:</label><input title="Contact's last name" type="text" id="last-name-edit" required placeholder="Doe" pattern="[a-zA-Z]+"/>
+            <br>
+            <label>Email:</label><input title="Contact's email" type="email" id ="email-edit" required placeholder="johndoe@gmail.com"/>
+            <br>
+            <label>Phone:</label><input title="Contact's phone number" type="text" id ="phone-edit" required placeholder="XXX-XXX-XXXX"/>
+            <br>
+            <button type="button" id="submit-contact-edit" onclick="reallyEditContact();">Edit Contact</button>
+            <br>
+            <p id="form-err-message-edit"></p>
+        </form>
     </div>
 </body>
 </html>

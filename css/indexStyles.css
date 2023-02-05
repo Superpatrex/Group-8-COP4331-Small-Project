@@ -7,7 +7,7 @@
 .banner{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url(../images/northern_lights_2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url(../images/northern_lights_1.jpg);
     /*background-image: url(../images/northern_lights_1.jpg);*/
     background-size: cover;
     background-position: center;
