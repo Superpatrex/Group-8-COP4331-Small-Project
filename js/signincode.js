@@ -38,7 +38,7 @@ document.querySelectorAll(".eye").forEach(eyeIcon =>
 });
 
 // ** NEEDS TO BE CHANGED (maybe) **
-const urlBase = 'http://206.189.190.78/LAMPAPI';
+const urlBase = 'http://cop4331group/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;

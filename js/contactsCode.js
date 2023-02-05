@@ -1,5 +1,5 @@
 let userId = 0;
-const urlBase = 'http://206.189.190.78/LAMPAPI';
+const urlBase = 'http://cop4331group/LAMPAPI';
 const extension = 'php';
 let objId = [];
 
