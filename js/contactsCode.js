@@ -505,7 +505,6 @@ function cancelAndLoad()
 	document.querySelector(".del").style.display="none";
 	document.querySelector(".col").style.display="inline-block";
 	document.getElementById("search-bar").style.display = "flex";
-	document.querySelector(".content").style.display="block";
 	loadContacts();
 }
 
