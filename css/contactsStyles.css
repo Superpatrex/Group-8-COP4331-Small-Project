@@ -97,7 +97,7 @@ nav ul li::after
 .content
 {
     position: relative;
-    display: block;
+    display: none;
     width: 65em;
     height: 33em;
     border: none;
