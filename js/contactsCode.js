@@ -123,7 +123,7 @@ function loadContacts()
 
 				table.innerHTML="";
 				let newText= "";
-
+        document.querySelector(".content").style.display="block";
 				for (let i = 0; i < jsonObject.results.length; i++)
 				{	
  			    objId[i] = jsonObject.results[i].ID;
