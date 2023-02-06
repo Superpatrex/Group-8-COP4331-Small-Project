@@ -351,7 +351,6 @@ function showForm()
 		loadContacts();
 		document.getElementById("search-bar").style.display="flex";
 		document.querySelector(".add-contact-div").style.display="none";
-		document.querySelector(".content").style.display="block";
 		document.querySelector(".edit").style.display="none";
 		document.querySelector(".addIcon").classList.replace("bx-x", "bxs-user-plus");
 		document.querySelector(".col").style.background="#009688";
